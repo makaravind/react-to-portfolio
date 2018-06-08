@@ -16,6 +16,7 @@ const ProjectsContainer = styled.div`
     height: 30em;
     margin-left: 20em;
     margin-right: 20em;
+    overflow-x: hidden;
     
     @media (max-width: 500px) {
         grid-template-columns: 1fr ;

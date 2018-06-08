@@ -12,10 +12,6 @@ const Container = styled.div`
 
 `;
 
-const styledAnchor = styled.a`
-    
-`;
-
 const Title = styled.h3``;
 
 const Description = styled.p`
@@ -49,7 +45,7 @@ function ProjectItemComponent({project}) {
     return (
         <Container>
             <TitleContainer>
-                <Title>{project.name}</Title>
+                <Title><a href={project.html_url}>{project.name}</a></Title>
                 <StarContainer>
                     <StarImage src={star}/> {project.stargazers_count}
                 </StarContainer>
