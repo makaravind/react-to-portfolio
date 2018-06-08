@@ -10,7 +10,7 @@ const Text = styled.h1`
     margin-bottom: 0;
     font-family: 'Shadows Into Light', cursive;;
     color: rgba(201, 210, 219, 1);
-    font-size: 5em;
+    font-size: 4em;
 `;
 
 const Caption = styled.h1`

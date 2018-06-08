@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import image from '../../assets/11.jpg';
 import Title from './title.component.';
 
-import * as firebase from 'firebase';
 
 const Layout = styled.div`
     display: grid;
@@ -17,26 +16,10 @@ const TitleImage = styled.img`
 
 class HomeComponnent extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            name: 'No Name'
-        }
-    }
-
-    componentDidMount() {
-        const rootRef = firebase.database().ref().child('details');
-        rootRef.on('value', snap => {
-           this.setState({
-               name: snap.val().name
-           })
-        });
-    }
-
     render() {
         return (
             <Layout>
-                <Title details={this.state}/>
+                <Title details={this.props.details}/>
                 <TitleImage src={image}/>
             </Layout>
         )
