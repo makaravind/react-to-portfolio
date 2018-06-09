@@ -3,6 +3,7 @@ import Title from '../../global/components/heading.component';
 import github from '../../assets/github.png';
 import styled from 'styled-components';
 import {GITHUB} from '../../global/app.constants';
+import {goToLink} from '../../global/utility';
 
 const GitHubIcon = styled.img`
     height: 10em;
@@ -20,18 +21,13 @@ const Layout = styled.div`
     justify-items: center;
 `;
 
-const goToLink = () => {
-    window.location = GITHUB;
-};
-
-
 const ProjectIntroComponent = ({projectsCount}) => {
     return (
         <Layout>
             <Title color='rbga(0,0,0,1)' size='m'>
                 {projectsCount} Projects Sourced from my
             </Title>
-            <GitHubIcon src={github} alt="github" onClick={goToLink}/>
+            <GitHubIcon src={github} alt="github" onClick={() => goToLink(GITHUB)}/>
         </Layout>
     );
 };

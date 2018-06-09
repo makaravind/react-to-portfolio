@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import image from '../../assets/11.jpg';
 import Title from './title.component.';
+import SocialMediaIcons from "./social-media-icons.component";
 
 
 const Layout = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 100%;
 `;
 
 const TitleImage = styled.img`
@@ -15,7 +17,7 @@ const TitleImage = styled.img`
     justify-self: end;
 `;
 
-class HomeComponnent extends Component {
+class HomeComponent extends Component {
 
     render() {
         return (
@@ -28,4 +30,4 @@ class HomeComponnent extends Component {
 
 }
 
-export default HomeComponnent
+export default HomeComponent

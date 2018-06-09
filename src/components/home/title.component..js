@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SocialMediaIcons from "./social-media-icons.component";
 
 const Layout = styled.div`
     justify-self: center;
@@ -26,6 +27,7 @@ function Title({details: {name}}) {
         <Layout>
             <Text>Hi, I'm {name}</Text>
             <Caption>Let's Meet On Edge Of The Universe...</Caption>
+            <SocialMediaIcons/>
         </Layout>
     )
 }
