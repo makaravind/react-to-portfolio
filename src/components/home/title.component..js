@@ -8,7 +8,7 @@ const Layout = styled.div`
 
 const Text = styled.h1`
     margin-bottom: 0;
-    font-family: 'Shadows Into Light', cursive;;
+    font-family: 'Shadows Into Light', cursive;
     color: rgba(201, 210, 219, 1);
     font-size: 4em;
 `;

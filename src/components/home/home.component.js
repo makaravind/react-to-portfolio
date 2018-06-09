@@ -11,6 +11,7 @@ const Layout = styled.div`
 
 const TitleImage = styled.img`
     height: 100%;
+    width: 90%;
     justify-self: end;
 `;
 

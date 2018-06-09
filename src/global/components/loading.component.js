@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
-import clock from '../assets/sand-clock.png';
+import clock from '../../assets/sand-clock.png';
 
 const rotate = keyframes`
     from {
@@ -16,6 +16,7 @@ const StyledLoading = styled.img`
     height: 3em;
     animation: ${rotate} 2s linear infinite;
     align-self: center;
+    justify-self: center;
 `;
 
 function Loading() {

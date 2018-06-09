@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import * as firebase from 'firebase';
-import WrapperComponent from './global/wrapper.component';
+import WrapperComponent from './global/components/wrapper.component';
 import HomeComponent from './components/home/home.component';
 import ProjectsComponent from './components/projects/projects.components';
 

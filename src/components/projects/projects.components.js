@@ -1,36 +1,25 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import ProjectItemComponent from './project-item.component';
-import Loading from '../../global/loading.component';
+import FiltersComponent from './filters.component';
+import GitHubProjectsComponent from "./github-projects.component";
+import Loading from '../../global/components/loading.component';
 
-const ProjectsContainer = styled.div`
+const Layout = styled.div`
     display: grid;
-    justify-self: center;
-    align-self: center;
-    grid-template-columns: 50% 50%;
-    grid-gap: 0.5em;
-    background: ${props => props.length > 0 ? 'rgba(255, 255, 255, 0.13)' : 'rgba(255, 255, 255, 0)'};
-    padding: 15px;
-    border-radius: 6px;
+    grid-template-columns: repeat(12, 1fr);
     overflow: auto;
-    height: 30em;
-    margin-left: 20em;
-    margin-right: 20em;
-    overflow-x: hidden;
-    
-    @media (max-width: 500px) {
-        grid-template-columns: 1fr ;
-    }
-    
 `;
 
+
 class ProjectsComponent extends Component {
+
 
     constructor(props) {
         super(props);
 
-        this.state={
-            projects: []
+        this.state = {
+            projects: [],
+            forkedProjectsAlso: true
         }
     }
 
@@ -45,17 +34,39 @@ class ProjectsComponent extends Component {
             });
     }
 
+    onToggleFilter = (filterName) => {
+        switch (filterName) {
+            case 'fork':
+                this.setState((currentState) => {
+                    return {
+                        forkedProjectsAlso: !currentState.forkedProjectsAlso
+                    };
+                });
+        }
+    };
+
+    getProjects = () => {
+       return this.state.projects
+           .filter(project => {
+               return this.state.forkedProjectsAlso ||
+                   project.fork === this.state.forkedProjectsAlso;
+           }).sort((a, b) => {
+               const refProp = 'updated_at';
+               return new Date(b[refProp]) - new Date(a[refProp])
+           });
+    };
+
     render() {
         return (
-            <ProjectsContainer length={this.state.projects.length}>
-                {
-                    this.state.projects.length > 0 ?
-                    this.state.projects.map(project => {
-                        return <ProjectItemComponent project={project}/>
-                    }) : <Loading/>
-                }
-            </ProjectsContainer>
-
+            this.state.projects.length > 0 ?
+                <Layout>
+                    <GitHubProjectsComponent projects={this.getProjects()}/>
+                    <FiltersComponent
+                        onToggleFilter={this.onToggleFilter}
+                        forkedAlso={this.state.forkedProjectsAlso}
+                    />
+                </Layout>
+                : <Loading/>
         )
     }
 }
